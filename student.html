@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Portal – Faculty Evaluation</title>
+<script>
+try{var s=sessionStorage.getItem("fes-session")||localStorage.getItem("fes-session");if(!s||JSON.parse(s).role!=="Student Evaluator")location.replace("login.html")}catch(e){location.replace("login.html")}
+var t=null;try{t=localStorage.getItem("fes-theme")}catch(e){}
+document.documentElement.classList.toggle("dark",t?t==="d":matchMedia("(prefers-color-scheme: dark)").matches);
+</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+<header class="sh">
+  <div class="brand"><div class="logo"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><b id="inst">Faculty Evaluation</b><small>Student Portal</small></div></div>
+  <div class="sp"></div>
+  <span class="who" id="who"></span>
+  <button class="ib" id="theme" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  <button class="btn ghost sm" id="logout">Sign out</button>
+</header>
+<main class="wrap" id="view" aria-live="polite"></main>
+<dialog id="cdlg"><div class="df"><h2>Submit this evaluation?</h2><p id="cmsg" class="sub"></p><div class="fa"><button class="btn ghost" id="cno" type="button">Go back</button><button class="btn" id="cyes" type="button">Submit</button></div></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script src="js/seed.js"></script>
+<script src="js/student.js"></script>
+</body>
+</html>

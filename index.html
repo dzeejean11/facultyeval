@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faculty Evaluation System – Admin</title>
+<script>
+try{var s=sessionStorage.getItem("fes-session")||localStorage.getItem("fes-session");if(!s)location.replace("login.html");else if(JSON.parse(s).role==="Student Evaluator")location.replace("student.html")}catch(e){location.replace("login.html")}
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+<aside class="side" id="side">
+  <div class="brand"><div class="logo"><svg viewBox="0 0 24 24"><path d="m22 10-10-5L2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><b>Faculty Evaluation</b><small>DDFES-FA Admin</small></div></div>
+  <nav>
+    <div class="grp">General</div>
+    <button class="nav on" data-p="dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Dashboard</button>
+    <button class="nav" data-p="reports"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16V9M12 16V5M17 16v-4"/></svg>Reports</button>
+    <div class="grp">Evaluation</div>
+    <button class="nav" data-p="evaluators"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg>Evaluators</button>
+    <button class="nav" data-p="forms"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Evaluation Forms</button>
+    <button class="nav" data-p="criteria"><svg viewBox="0 0 24 24"><path d="m3 7 2 2 4-4M3 17l2 2 4-4M13 7h8M13 17h8"/></svg>Criteria</button>
+    <div class="grp">Feedback Analysis</div>
+    <button class="nav" data-p="feedback"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback Comments</button>
+    <button class="nav" data-p="nlp"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Sentiment Validation</button>
+    <div class="grp">Manage</div>
+    <button class="nav" data-p="users"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Users</button>
+    <button class="nav" data-p="subjects"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M20 17v5H6.5A2.5 2.5 0 0 1 4 19.5"/></svg>Subjects</button>
+    <button class="nav" data-p="years"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Academic Years</button>
+    <div class="grp">Administration</div>
+    <button class="nav" data-p="roles"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Roles &amp; Permissions</button>
+    <button class="nav" data-p="settings"><svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Institution Settings</button>
+    <button class="nav" data-p="audit"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>Audit Log</button>
+  </nav>
+  <div class="me"><div class="av">AD</div><div><b>Administrator</b><small>admin@school.edu</small></div><button class="ib" id="logout" aria-label="Sign out" title="Sign out" style="margin-left:auto"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg></button></div>
+</aside>
+<div class="scrim" id="scrim"></div>
+<div class="main">
+  <header class="hd">
+    <button class="ib" id="menu" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <div class="sp"></div>
+    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="q" type="search" placeholder="Search this page" aria-label="Search"></label>
+    <button class="ib" id="theme" aria-label="Toggle theme"><svg id="ti" viewBox="0 0 24 24"></svg></button>
+  </header>
+  <main class="ct" id="view"></main>
+</div>
+</div>
+<dialog id="dlg"><form class="df" id="form" novalidate><h2 id="dt"></h2><div id="ff" class="grid"></div><div class="fa"><button type="button" class="btn ghost" id="cancel">Cancel</button><button class="btn" type="submit">Save</button></div></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
